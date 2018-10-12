@@ -21,6 +21,14 @@ def check_destination
   end
 end
 
+def update_gitconfig
+  if ENV['TRAVIS']
+    sh "git config --global user.name $GIT_NAME"
+    sh "git config --global user.email $GIT_EMAIL"
+    sh "git config --global push.default simple"
+  end
+end
+
 namespace :site do
   desc "Generate the site"
   task :build do
@@ -48,11 +56,7 @@ namespace :site do
     end
 
     # Configure git if this is run in Travis CI
-    if ENV['TRAVIS']
-      sh "git config --global user.name $GIT_NAME"
-      sh "git config --global user.email $GIT_EMAIL"
-      sh "git config --global push.default simple"
-    end
+    update_gitconfig
 
     # Make sure destination folder exists as git repo
     check_destination
@@ -66,6 +70,8 @@ namespace :site do
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(CONFIG["destination"]) do
+      # Configure git if this is run in Travis CI
+      update_gitconfig
       # check if there is anything to add and commit, and pushes it
       sh "if [ -n '$(git status)' ]; then
             git add --all .;
