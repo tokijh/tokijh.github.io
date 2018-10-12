@@ -3,19 +3,12 @@ language: ruby
 cache: bundler
 rvm:
 - 2.4.2
-
 install:
-  # Install Jekyll and dependencies
-  - bundle install
-
-script: bundle exec rake site:deploy --quiet #--trace
-
+- bundle install
+script: bundle exec rake site:deploy --quiet
 branches:
   only:
   - master
 env:
   global:
-    secure: eWz7s/LsLKXpjMb9nchIgDX916O3mHrblDTfz5JaSXNmYb50Wq5n2rd69C1V82B1dL+dLMrv1gZzvXaLjnVQNqWYltL85R7Fr8D7AG5xNcYA8vbZ2SQmUhi9BwvInjlfgyuomgXscI4Vbfd8NTSqnzT+gFutMrNQwIgREDg0Un5RpBXHLbGCf3QRChipOP4QMg1ZLGEVNLYkEIc0Ezo8KMK2yVzYmuIAFmT3cvffcIAaJkd/nGppGkjZECrdqvz0qXdnC547hkrGn4ysGt7xoWNQ4GbS7K+TmIA6WOx35rXT+Nc+vJR+2jRgGELAEKddh+P7eH3EDESExsZ134QPtr6sdhx3f9ih2TYEkVtxroNV9+vMReNPJtRVfaf09FEhtaspw4jhw4ps5BoiIDM2E00C8483Y6z3XZQsHYHD106y9WwZqftvlzs3imeOwx/zSbZrMBes08LEi9FTUiJq/1goce+NU2IZG97NoLLUPRaWrrSjif6dsyNRxW6jPH1cl8EDeKVWdpS74JfX+ipgdUtUo+rIyZyMxgncCIUirQK+XGG8tMUALbnnf7uz29OQrD6TbANDtA/FfXmWYGVoEWGm5/ADluAtwlnQ5j4kbwfuHbPy5LoSz6ymsImngYrqN+AuVjnYAN1c5NjwMKg5Ypnm7U6dt8MKArgBoy47X1A=
-branches:
-  only:
-    - master
+    secure: iYDxp1jv5uT9enBskIK4J3cGbVVCvw9yWyBlJpis7BT6Opee9GMT2ra2TZJrmgSNlkHf0q9ypn9dyTG6Y72XRmNSRHNKSV4gxEaufIyMAqwaz7keyhsdo/4JCpxDYMOxZPfHPZRQYAcKVz6roJ6uaaPa6T67M9JLnZb4T/+HV2/w5/fn6CkDNP4UCeaOayqH/WzYHBeOJuTBEj2+3exeQ1tEankToSkhxJU/PYqSZD/Ymh0YtXDKyuNFzKaSbpFtDNr0vBnt8xTTMJ4oJItaLD4qIaQSQwJsOp7RiCWjfEAyC/9DbFQeVZALp6WNUg5XGIfHQrBU31l+2cGcbdsgy3EBUsgq068RDJXB0AMEBakhWIQKij4T9SgNHUHTOw5mLBXMFg2O83yG3pCLRjtOS6uWDp6jU+iZt4LZl/4ZTEu0pkjIRMIIYRQ738fA4GtKl3vxntkX0bK8gdDWhk3XtzSd8A7u4yHEjCG6XwujQgY8vDWZzwkjmvQw4BCPGbub+y8oYEOoQ68u3YatD8OqC92Gjsz9YKY0nQD3wf9taDj50yn/PKPX88l844HaUGK/zCP8Tr6UlZGCul1bM8ocDWLfK9dz8kCRk+eBqW5YAkg6MJmcshq9YWGrvy6A5Swpprdec7zBjahskLSTm0RcBLVnCTfo1yxsiWLBTG/uzd8=
