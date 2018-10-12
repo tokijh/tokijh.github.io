@@ -17,7 +17,7 @@ DESTINATION_BRANCH = "github.io"
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://$GIT_NAME:$GITHUB_TOKEN@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
+    sh "git clone https://$GIT_NAME:$GH_TOKEN@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
   end
 end
 
@@ -73,8 +73,6 @@ namespace :site do
       # Configure git if this is run in Travis CI
       update_gitconfig
       # check if there is anything to add and commit, and pushes it
-      puts "Commit Message Updating to #{USERNAME}/#{REPO}@#{sha}."
-      puts "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       sh "git add --all .;"
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';"
       sh "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
