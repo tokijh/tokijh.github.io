@@ -74,6 +74,7 @@ namespace :site do
       update_gitconfig
       # check if there is anything to add and commit, and pushes it
       puts "Commit Message Updating to #{USERNAME}/#{REPO}@#{sha}."
+      puts "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       sh "git add --all .;"
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';"
       sh "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
