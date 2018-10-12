@@ -22,11 +22,9 @@ def check_destination
 end
 
 def update_gitconfig
-  if ENV['TRAVIS']
-    sh "git config --global user.name $GIT_NAME"
-    sh "git config --global user.email $GIT_EMAIL"
-    sh "git config --global push.default simple"
-  end
+  sh "git config --global user.name $GIT_NAME"
+  sh "git config --global user.email $GIT_EMAIL"
+  sh "git config --global push.default simple"
 end
 
 namespace :site do
@@ -77,7 +75,7 @@ namespace :site do
       puts "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       sh "git add --all .;"
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';"
-      sh "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
+      sh "git push https://github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end
