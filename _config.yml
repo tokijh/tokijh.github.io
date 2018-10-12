@@ -1,1 +1,56 @@
-theme: jekyll-theme-cayman
+# Site settings
+title: tokijh
+description: Hi. I'm a developer in Korea 🙌
+cover: assets/images/radhakrishna.jpg
+logo: assets/images/logo.png
+favicon: assets/images/favicon.png
+baseurl: "/" # the subpath of your site, e.g. /blog/ or / for root
+url: "https://tokijh.github.io" # the base hostname & protocol for your site
+paginate:	5 # The number of posts to show per page on your homepage
+
+# Social
+facebook: tokijh
+github: tokijh
+
+#Additional Pages
+about: about
+contact: contact
+privacy-policy: privacy-policy
+
+
+permalink: /:title
+
+
+# Google Analytics
+analytics_id: ""
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+
+plugins:
+  - jekyll-paginate
+
+
+# Settings for rake task
+safe: False
+lsi: False
+username: tokijh #github username
+repo: tokijh.github.io #github repository
+branch: master #branch
+relative_source: ./ #source directory
+destination: ./output/ #destination directory
+production_url:  https://tokijh.github.io/
+source_url:  https://github.com/tokijh/tokijh.github.io #source repository url
+
+exclude:
+  - README.md
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - changelog.md
+  - "*.Rmd"
+  - vendor
+  - .travis.yml
