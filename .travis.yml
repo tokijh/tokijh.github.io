@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.3.3
+before_script:
+- chmod +x ./script/cibuild
+script: "./script/cibuild"
+branches:
+  only:
+  - master
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - secure: eWz7s/LsLKXpjMb9nchIgDX916O3mHrblDTfz5JaSXNmYb50Wq5n2rd69C1V82B1dL+dLMrv1gZzvXaLjnVQNqWYltL85R7Fr8D7AG5xNcYA8vbZ2SQmUhi9BwvInjlfgyuomgXscI4Vbfd8NTSqnzT+gFutMrNQwIgREDg0Un5RpBXHLbGCf3QRChipOP4QMg1ZLGEVNLYkEIc0Ezo8KMK2yVzYmuIAFmT3cvffcIAaJkd/nGppGkjZECrdqvz0qXdnC547hkrGn4ysGt7xoWNQ4GbS7K+TmIA6WOx35rXT+Nc+vJR+2jRgGELAEKddh+P7eH3EDESExsZ134QPtr6sdhx3f9ih2TYEkVtxroNV9+vMReNPJtRVfaf09FEhtaspw4jhw4ps5BoiIDM2E00C8483Y6z3XZQsHYHD106y9WwZqftvlzs3imeOwx/zSbZrMBes08LEi9FTUiJq/1goce+NU2IZG97NoLLUPRaWrrSjif6dsyNRxW6jPH1cl8EDeKVWdpS74JfX+ipgdUtUo+rIyZyMxgncCIUirQK+XGG8tMUALbnnf7uz29OQrD6TbANDtA/FfXmWYGVoEWGm5/ADluAtwlnQ5j4kbwfuHbPy5LoSz6ymsImngYrqN+AuVjnYAN1c5NjwMKg5Ypnm7U6dt8MKArgBoy47X1A=
+sudo: false
