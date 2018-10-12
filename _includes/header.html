@@ -15,16 +15,65 @@
   </div>
   <nav class="ampstart-sidebar-nav ampstart-nav">
     <ul class="list-reset m0 p0 ampstart-label">
-        {% for entry in site.data.navigation %}
-            {% if entry.url == current_page %}
-                {% assign current = 'current' %}
+        {% assign url_splits = page.url | | split: '/' %}
+        {% for node0 in site.data.navigation %}
+            {% if node0.url == url_splits[1] %}
+                {% assign current0 = 'current' %}
             {% else %}
-                {% assign current = null %}
+                {% assign current0 = null %}
             {% endif %}
-      <li class="ampstart-nav-item ampstart-nav-dropdown relative {{ current }}">
-          <li class="ampstart-faq-item"><a href="{{ site.url }}{{ site.baseurl }}{{ entry.url }}" class="text-decoration-none">{{ entry.title }}</a></li>
-      </li>
-      {% endfor %}
+            {% if node0.children.size > 0 %}
+              <li class="ampstart-nav-item ampstart-nav-dropdown relative {{ current0 }}">
+                <!-- Start Dropdown -->
+                <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
+                    <section>
+                        <header class="text-decoration-none">{{ node0.title }}</header>
+                        <ul class="ampstart-dropdown-items">
+                          {% for node1 in node0.children %}
+                            {% if node1.url == url_splits[2] %}
+                                {% assign current1 = 'current' %}
+                            {% else %}
+                                {% assign current1 = null %}
+                            {% endif %}
+                            {% if node1.children.size > 0 %}
+                              <li class="ampstart-nav-item ampstart-nav-dropdown relative {{ current1 }}">
+                                <!-- Start Dropdown -->
+                                <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
+                                  <section>
+                                    <header class="text-decoration-none">{{ node1.title }}</header>
+                                    <ul class="ampstart-dropdown-items">
+                                      {% for node2 in node1.children %}
+                                      {% if node2.url == url_splits[3] %}
+                                          {% assign current2 = 'current' %}
+                                      {% else %}
+                                          {% assign current2 = null %}
+                                      {% endif %}
+                                        <li class="ampstart-dropdown-item relative {{ current2 }}">
+                                            <a href="{{ site.url }}{{ site.baseurl }}{{ node2.url }}" class="text-decoration-none">{{ node2.title }}</a>
+                                        </li>
+                                      {% endfor %}
+                                    </ul>
+                                  </section>
+                                </amp-accordion>
+                                <!-- End Dropdown -->
+                              </li>
+                            {% else %}
+                              <li class="ampstart-dropdown-item relative {{ current1 }}">
+                                  <a href="{{ site.url }}{{ site.baseurl }}{{ node1.url }}" class="text-decoration-none">{{ node1.title }}</a>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        </ul>
+                    </section>
+                </amp-accordion>
+                <!-- End Dropdown -->
+              </li>
+            {% else %}
+              <li class="ampstart-nav-item relative {{ current0 }}">
+                  <a href="{{ site.url }}{{ site.baseurl }}{{ node0.url }}" class="text-decoration-none">{{ node0.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
     </ul>
   </nav>
 

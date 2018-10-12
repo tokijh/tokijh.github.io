@@ -3,6 +3,10 @@
 
 $grey-color: #828282;
 $theme-color: #ff6f00;
+$default-background-color: #333333;
+$default-text-color: #cccccc;
+$default-link-color: #cccccc;
+$default-title-text-color: $theme-color;
 
 .icon {
   > svg {
@@ -42,7 +46,7 @@ main {
 }
 
 body {
-  background-color: #fff;
+  background-color: $default-background-color;
   font-family: $font-sans;
   margin: 0;
   padding: 0;
@@ -135,7 +139,6 @@ body {
       margin-bottom: 10px;
       a {
         text-decoration: none;
-        color: #333332;
         &:hover {
           color: $theme-color;
           text-decoration: none;
@@ -148,7 +151,7 @@ body {
       font-style: normal;
       font-size: 20px;
       line-height: 1.59;
-      color: #666665;
+      color: $default-text-color;
       text-align: justify;
     }
     .post-description {
@@ -157,11 +160,11 @@ body {
     }
     .post-meta {
       font-size: 14px;
-      color: #b3b3b1;
+      color: $default-text-color;
       line-height: 30px;
       margin-top: 20px;
       a {
-        color: #b3b3b1;
+        color: $default-link-color;
         text-decoration: none;
         &:hover {
           text-decoration: underline;
@@ -229,7 +232,6 @@ body {
     letter-spacing: -0.04em;
     font-size: 50px;
     line-height: 1.1;
-    color: #333332;
     margin-bottom: 50px;
     text-align: left;
     padding: 0;
@@ -262,7 +264,7 @@ body {
   .post-content {
     width: 100%;
     font-family: $font-serif;
-    color: #333333;
+    color: $default-text-color;
     h1,
     h2,
     h3 {
@@ -312,13 +314,13 @@ body {
       letter-spacing: -0.002em;
       margin-top: 30px;
       margin-bottom: 0;
-      color: #333333;
+      color: $default-text-color;
       -webkit-hyphens: auto;
       -moz-hyphens: auto;
       hyphens: auto;
     }
     a {
-      color: #333333;
+      color: $default-link-color;
       text-decoration: underline;
     }
     amp-img,
@@ -540,6 +542,7 @@ html {
 body {
   margin: 0;
 }
+header:focus {outline:0;}
 article,
 aside,
 footer,
@@ -1597,7 +1600,7 @@ template {
   box-sizing: border-box;
 }
 body {
-  background: #fff;
+  background: $default-background-color;
   color: #4a4a4a;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif;
@@ -1650,7 +1653,7 @@ body {
 .ampstart-hint,
 .ampstart-label {
   font-size: 0.875rem;
-  color: #4f4f4f;
+  color: $default-text-color;
   line-height: 1.125rem;
   letter-spacing: 0.06rem;
 }
@@ -1823,8 +1826,8 @@ a:visited {
   opacity: 1;
 }
 .ampstart-footer {
-  background-color: #fff;
-  color: #000;
+  background-color: $default-background-color;
+  color: $default-text-color;
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
@@ -2180,22 +2183,22 @@ _:-ms-lang(x) {
   min-width: 200px;
 }
 .ampstart-nav-dropdown amp-accordion header {
-  background-color: #fff;
+  background-color: $default-background-color;
   border: none;
 }
 .ampstart-nav-dropdown amp-accordion ul {
-  background-color: #fff;
+  background-color: $default-background-color;
 }
 .ampstart-nav-dropdown .ampstart-dropdown-item,
 .ampstart-nav-dropdown .ampstart-dropdown > section > header {
-  background-color: #fff;
-  color: #000;
+  background-color: $default-background-color;
+  color: $default-title-text-color;
 }
 .ampstart-nav-dropdown .ampstart-dropdown-item {
   color: $theme-color;
 }
 .ampstart-sidebar {
-  background-color: #fff;
+  background-color: $default-background-color;
   color: $theme-color;
   min-width: 300px;
   width: 300px;
@@ -2206,6 +2209,7 @@ _:-ms-lang(x) {
 .ampstart-sidebar-header {
   line-height: 3.5rem;
   min-height: 3.5rem;
+  padding-bottom: 20px;
 }
 .ampstart-sidebar .ampstart-dropdown-item,
 .ampstart-sidebar .ampstart-dropdown header,
@@ -2468,6 +2472,10 @@ blockquote {
   background: none;
 }
 
+.post-title {
+  color: $default-title-text-color;
+}
+
 body > figure > figcaption > header > h2 {
   text-align: center;
 }
@@ -2492,4 +2500,19 @@ body > figure > figcaption > header > h2 {
 
 .ampstart-read-text {
   background: $theme-color;
+}
+
+.i-amphtml-loader-dot {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 2px 2px 1px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes i-amphtml-loader-dots {
+  0%,
+  to {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 }

@@ -3,7 +3,7 @@ title: tokijh
 description: Hi. I'm a developer in Korea 🙌
 cover: assets/images/radhakrishna.jpg
 logo: assets/images/logo.png
-favicon: assets/images/favicon.png
+favicon: assets/images/favicon.ico
 baseurl: "/" # the subpath of your site, e.g. /blog/ or / for root
 url: "https://tokijh.github.io" # the base hostname & protocol for your site
 paginate:	5 # The number of posts to show per page on your homepage

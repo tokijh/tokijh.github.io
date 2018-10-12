@@ -3,3 +3,24 @@
 
 - title: About
   url: about
+
+- title: Develop
+  url: dev
+  children:
+    - title: Swift
+      url: swift
+      children:
+        - title: iOS SDK
+- title: Reference
+  url: methods-endpoints
+  children:
+    - title: iOS SDK
+    - title: Android SDK
+    - title: Web SDK
+    - title: Cordova/Ionic SDK
+    - title: Xamarin SDK
+    - title: Unity SDK
+    - title: Adobe AIR SDK
+    - title: Titanium SDK
+    - title: React Native SDK
+    - title: HTTP API
