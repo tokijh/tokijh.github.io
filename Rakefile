@@ -75,6 +75,8 @@ namespace :site do
       # check if there is anything to add and commit, and pushes it
       puts "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       puts "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
+      puts "echo $GITHUB_TOKEN ;"
+      puts "echo $GH_TOKEN ;"
       sh "git add --all .;"
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';"
       sh "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
