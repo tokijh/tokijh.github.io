@@ -73,10 +73,8 @@ namespace :site do
       # Configure git if this is run in Travis CI
       update_gitconfig
       # check if there is anything to add and commit, and pushes it
+      puts "Commit Message Updating to #{USERNAME}/#{REPO}@#{sha}."
       puts "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
-      puts "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
-      puts "echo $GITHUB_TOKEN ;"
-      puts "echo $GH_TOKEN ;"
       sh "git add --all .;"
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';"
       sh "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
