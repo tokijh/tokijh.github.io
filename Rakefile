@@ -22,9 +22,11 @@ def check_destination
 end
 
 def update_gitconfig
-  sh "git config --global user.name $GIT_NAME"
-  sh "git config --global user.email $GIT_EMAIL"
-  sh "git config --global push.default simple"
+  if ENV['TRAVIS']
+    sh "git config --global user.name $GIT_NAME"
+    sh "git config --global user.email $GIT_EMAIL"
+    sh "git config --global push.default simple"
+  end
 end
 
 namespace :site do
@@ -63,7 +65,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site
-    sh "bundle exec jekyll build --trace"
+    sh "bundle exec jekyll build"
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
@@ -75,7 +77,7 @@ namespace :site do
       puts "git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       sh "git add --all .;"
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';"
-      sh "git push https://github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
+      sh "git push https://$GH_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end
